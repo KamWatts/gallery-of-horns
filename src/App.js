@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
+import Main from './Main.js';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+// Use classes more than IDs in React. React is meant to be reused.
+
+class App extends React.Component {
+
+  render() {
+    return (
+      <>
+          <header>
+            <h1>Gallery of Horns</h1>
+          </header>
+            <main>
+                  <Main/>
+            </main>
+            <br></br>
+            <footer>Author: Kameron Watts</footer>
+        </>
+    );
+  }
 }
 
 export default App;
