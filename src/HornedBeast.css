@@ -1,0 +1,16 @@
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  color: brown;
+}
+
+p {
+  color: goldenrod;
+}
