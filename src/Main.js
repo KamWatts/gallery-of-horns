@@ -1,30 +1,33 @@
 import React from 'react';
-import HornedBeast from './HornedBeast.js';
-import './App.css';
+import data from './data.json'
+import HornedBeast from './HornedBeast';
+import './Main.css';
 
-class Main extends React.Component {
+export default class Main extends React.Component {
 
   render() {
-    return (
-      <>
-        <title>Horned Beasts</title>
-          <main>  
-                <HornedBeast 
-                title="Rhino" 
-                description="This Rhinocerous roams the lands of Western Africa. Amongst the most feared and respected animals on land, this horned beast is an omnivore." 
-                imgUrl = "../images/rhino.jpg"
-                />
-                
-                  <HornedBeast 
-                  title='Horned Bullfrog' 
-                  description="Frog with horns" 
-                  imgUrl = "../images/hornedfrog.jpg"
-                  />
-                       
-           </main>
-      </>
-    )
-  };
-}
 
-export default Main;
+    console.log(data);
+
+    let hornedAnimals = [];
+    data.forEach((animal, idx) => {
+      
+      hornedAnimals.push(
+      <HornedBeast
+      name={animal.title}
+      image={animal.image_url}
+      description={animal.description}
+      horns={animal.horns}
+      key={idx}
+      />
+    )
+  })
+
+    return (
+      <main>
+       
+      </main>
+    
+    );
+  }
+}

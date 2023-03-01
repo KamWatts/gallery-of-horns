@@ -1,0 +1,40 @@
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.animal {
+  border: 1px solid darkgreen;
+  padding: 1vw;
+  margin-bottom: 1vw;
+  width: 19%;
+}
+
+.animal h3 {
+  font-size: 2vw;
+}
+
+.animal img {
+  width: 100%;
+}
+
+.animal p {
+  font-size: 11px;
+  margin: auto;
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+
+.animal p:last-of-type {
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
+.animal p:last-of-type:hover {
+  color: maroon;
+}
+
+.article-button {
+  margin: .1rem .125vw;
+}
