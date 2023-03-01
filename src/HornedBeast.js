@@ -39,17 +39,20 @@ class HornedBeast extends React.Component {
 
           <article
             className="animal">
-
+        <Card.Header>
               <h2>{this.props.title}</h2>
               <div>{this.state.favorited ? 'Yep' : 'Nope'}</div>
-
+         </Card.Header>
+         <Card.Body>
               <p onClick={this.handleFavorites}>Pet the beast!</p>
               <p>{this.props.description}</p>
+        </Card.Body>
+        <Card.Footer>
               <img 
-
               src={this.props.image_url} 
               alt={this.props.title}
               />
+        </Card.Footer>
           </article>
 
       </Card>

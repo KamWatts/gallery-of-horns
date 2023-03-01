@@ -25,7 +25,7 @@ export default class Main extends React.Component {
 
     return (
       <main>
-       
+        {hornedAnimals}
       </main>
     
     );
