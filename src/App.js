@@ -1,5 +1,7 @@
 import React from 'react';
-import Main from './Main.js';
+import Header from './Header'
+import Main from './Main';
+import Footer from './Footer';
 import './App.css';
 
 
@@ -8,17 +10,14 @@ import './App.css';
 class App extends React.Component {
 
   render() {
+    // Step 1: I want to render all names and images
+    
     return (
       <>
-          <header>
-            <h1>Gallery of Horns</h1>
-          </header>
-            <main>
-                  <Main/>
-            </main>
-            <br></br>
-            <footer>Author: Kameron Watts</footer>
-        </>
+          <Header/>
+          <Main/>
+          <Footer/>
+      </>
     );
   }
 }
