@@ -2,8 +2,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button'
 import './HornedBeast.css'
-
 class HornedBeast extends React.Component {
 
   constructor(props) {
@@ -30,29 +30,32 @@ class HornedBeast extends React.Component {
 
   // the render() method gets invoked everytime a state
   render() {
-
+    console.log(this.props);
     // Step 1: I want to render all names and images
 
     return (
     <main>
-      <Card>
-
-          <article
-            className="animal">
-
-              <h2>{this.props.title}</h2>
-              <div>{this.state.favorited ? 'Yep' : 'Nope'}</div>
-
-              <p onClick={this.handleFavorites}>Pet the beast!</p>
-              <p>{this.props.description}</p>
-              <img 
-
-              src={this.props.image_url} 
-              alt={this.props.title}
-              />
-          </article>
-
-      </Card>
+  
+        <Card style={{ width: '18rem' }} className="animal">
+          <Card.Img  
+                variant="top"
+                src={this.props.image} 
+                alt={this.props.title}
+                />
+                <div>{this.state.favorited ? 'Yes' : ''}</div>
+          <Card.Body>
+            <Card.Title>
+                <p onClick={this.handleFavorites}>Pet the beast!</p>
+                <p>{this.props.description}</p>
+            </Card.Title>
+              <Card.Text>
+               
+              </Card.Text>   
+              <Button variant="primary">Favorite</Button>
+              <Button variant="primary">Hate It</Button>
+          </Card.Body>
+        </Card>
+  
     </main>
     )  
   };  
