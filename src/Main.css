@@ -4,6 +4,10 @@ main {
   justify-content: space-around;
 }
 
+ h1 {
+  text-align: center;
+}
+
 .animal {
   border: 1px solid darkgreen;
   padding: 1vw;
@@ -12,7 +16,7 @@ main {
 }
 
 .animal h3 {
-  font-size: 2vw;
+  font-size: 4vw;
 }
 
 .animal img {
@@ -20,7 +24,7 @@ main {
 }
 
 .animal p {
-  font-size: 11px;
+  font-size: 13px;
   margin: auto;
   display: inline-block;
   margin-bottom: .5rem;
@@ -35,6 +39,7 @@ main {
   color: maroon;
 }
 
-.article-button {
-  margin: .1rem .125vw;
+.modal-body img {
+  max-width: 100%;
 }
+

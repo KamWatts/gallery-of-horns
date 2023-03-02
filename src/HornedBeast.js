@@ -60,9 +60,7 @@ class HornedBeast extends React.Component {
               <Card.Text>
               <p>{this.props.description}</p>
               </Card.Text>   
-              <Button variant="primary" onClick={this.handleFavorites}>❤️</Button>
-              <Button variant="primary">Hate It</Button>
-              
+              <Button variant="primary" onClick={this.handleFavorites}><span role="img" aria-label="'/like/' this horned animal">❤️</span></Button>
           </Card.Body>
         </Card>
   

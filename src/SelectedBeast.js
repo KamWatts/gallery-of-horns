@@ -1,4 +1,5 @@
 import React from 'react';
+import './Main.css'
 import Modal from 'react-bootstrap/Modal';
 import { Image } from 'react-bootstrap';
 export default class SelectedBeast extends 
