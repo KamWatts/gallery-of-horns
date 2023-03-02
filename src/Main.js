@@ -8,12 +8,12 @@ export default class Main extends React.Component {
 
     console.log(this.props.data);
 
-    let hornedAnimals = [];
+    
 
-    this.props.data.forEach((animal) => {
+    let animal = this.props.data.map((animal) => {
       // console.log(animal);
 
-      hornedAnimals.push(
+      return (
       <HornedBeast
       name={animal.title}
       image={animal.image_url}
@@ -21,6 +21,8 @@ export default class Main extends React.Component {
       horns={animal.horns}
       keyword={animal.keyword}
       key={animal._id}
+      addHearts={this.props.addHearts}
+      handleOpenModal={this.props.handleOpenModal}
       />
     )
   })
@@ -28,9 +30,10 @@ export default class Main extends React.Component {
     return (
       <>
       <main>
-        {hornedAnimals}
+        {animal}
       </main>
       </>
     );
   }
 }
+

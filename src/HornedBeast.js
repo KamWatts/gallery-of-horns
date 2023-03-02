@@ -28,6 +28,11 @@ class HornedBeast extends React.Component {
     // handleFavorites can now be passed into an onClick attribute '{this.hanleLikes}'
   }
 
+  handleHeaderClick = () => {
+    this.props.handleOpenModal(this.props.name);
+  }
+
+
   // the render() method gets invoked everytime a state
   render() {
     console.log(this.props);
@@ -41,8 +46,9 @@ class HornedBeast extends React.Component {
                 variant="top"
                 src={this.props.image} 
                 alt={this.props.title}
+                onClick={this.props.addHearts}
                 />
-                <div>{this.state.favorited ? 'Yes' : ''}</div>
+                <h3>{this.state.favorited ? 'Love it' : ''}</h3>
           <Card.Body>
             <Card.Title>
                 <p onClick={this.handleFavorites}>Pet the beast!</p>
@@ -51,7 +57,7 @@ class HornedBeast extends React.Component {
               <Card.Text>
                
               </Card.Text>   
-              <Button variant="primary">Favorite</Button>
+              <Button variant="primary" onClick={this.handleFavorites}>Favorite</Button>
               <Button variant="primary">Hate It</Button>
           </Card.Body>
         </Card>
