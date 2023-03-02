@@ -1,11 +1,13 @@
 /** @format */
 
 import React from "react";
+// import ImageModal from "./Modal";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import data from "./data.json";
 import Modal from "react-bootstrap/Modal";
+// import SelectedBeast from "./SelectedBeast"
 import "./App.css";
 
 // Use classes more than IDs in React. React is meant to be reused.
