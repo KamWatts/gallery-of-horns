@@ -22,7 +22,7 @@ export default class Main extends React.Component {
       keyword={animal.keyword}
       key={animal._id}
       addHearts={this.props.addHearts}
-      handleOpenModal={this.props.handleOpenModal}
+      handleOpenModal={() => this.props.handleOpenModal(animal)}
       />
     )
   })
