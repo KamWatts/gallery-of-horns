@@ -6,19 +6,16 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import data from "./data.json";
-import Modal from "react-bootstrap/Modal";
-// import SelectedBeast from "./SelectedBeast"
+import SelectedBeast from "./SelectedBeast"
 import "./App.css";
 
 // Use classes more than IDs in React. React is meant to be reused.
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hearts: "Liking",
       isModalDisplaying: false,
-      animalName: "",
+      beastToDisplay: {}
     };
   }
 
@@ -27,22 +24,19 @@ class App extends React.Component {
       isModalDisplaying: false,
     });
 
-  handleOpenModal = (name) => {
+  handleOpenModal = (beastObject) => {
     this.setState({
       isModalDisplaying: true,
-      animalName: name,
-    });
-  };
-  addHearts = () =>
-    this.setState({
-      // this is the only way to update the value in state
-      hearts: this.state.hearts + "❤️",
+      beastToDisplay: beastObject
     });
 
+  };
+
   render() {
+    console.log(this.state.beastToDisplay);
     return (
       <>
-        <Header hearts={this.state.hearts} />
+        <Header/>
 
         <h3 onClick={this.handleOpenModal}>{this.state.image}</h3>
 
@@ -54,14 +48,11 @@ class App extends React.Component {
 
         <Footer />
 
-        <Modal
-          show={this.state.isModalDisplaying}
-          onHide={this.handleCloseModal}
-        >
-          <Modal.Header>
-            <Modal.Title>{this.state.animalName}</Modal.Title>
-          </Modal.Header>
-        </Modal>
+       <SelectedBeast
+       showModal={this.state.isModalDisplaying}
+       hideModal={this.handleCloseModal}
+       beast={this.state.beastToDisplay}
+       />
       </>
     );
   }

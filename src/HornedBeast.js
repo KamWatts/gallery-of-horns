@@ -9,7 +9,7 @@ class HornedBeast extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      favorites: 0,
+      favorites: '',
       favorited: false
     };
   }
@@ -21,44 +21,48 @@ class HornedBeast extends React.Component {
     // this.setState takes in object literals
 
     this.setState ({
-      favorites: this.state.favorites + 1,
+      favorites: this.state.favorites + '❤️',
       favorited: true
     }); // this is a helper mthod to pass into objects with values that need to be updated
 
     // handleFavorites can now be passed into an onClick attribute '{this.hanleLikes}'
   }
 
-  handleHeaderClick = () => {
-    this.props.handleOpenModal(this.props.name);
-  }
+  // handleHeaderClick = () => {
+  //   this.handleFavorites();
+  //   this.props.handleOpenModal(this.props.name);
+  // }
 
 
   // the render() method gets invoked everytime a state
   render() {
-    console.log(this.props);
+  
     // Step 1: I want to render all names and images
 
     return (
     <main>
   
         <Card style={{ width: '18rem' }} className="animal">
+
           <Card.Img  
                 variant="top"
                 src={this.props.image} 
                 alt={this.props.title}
-                onClick={this.props.addHearts}
+                onClick={this.props.handleOpenModal}
                 />
-                <h3>{this.state.favorited ? 'Love it' : ''}</h3>
+                <h3>{this.state.favorited ? this.state.favorites : ''}</h3>
           <Card.Body>
+
             <Card.Title>
-                <p onClick={this.handleFavorites}>Pet the beast!</p>
-                <p>{this.props.description}</p>
+                <h3>{this.props.name}</h3>
             </Card.Title>
+
               <Card.Text>
-               
+              <p>{this.props.description}</p>
               </Card.Text>   
-              <Button variant="primary" onClick={this.handleFavorites}>Favorite</Button>
+              <Button variant="primary" onClick={this.handleFavorites}>❤️</Button>
               <Button variant="primary">Hate It</Button>
+              
           </Card.Body>
         </Card>
   
