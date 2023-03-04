@@ -1,53 +1,45 @@
 import React from 'react';
-import {ListGroup, Form, Button} from 'react-bootstrap';
+import {Button, Form} from 'react-bootstrap';
 
 
-class ListGroup extends React.Component {
+export default class BeastForm extends React.Component {
 
   constructor(props) {
     super(props);
     this.state={
       name: '',
-      howToSort:'',
-      filteredData: data
+      selectedValue: '',
+      sortByHorn: 1
       }
     }
-  }
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const value = this.state.sortByHorn;
 
-  //   let name = e.target.name.value;
-  //   let selected = e.target.selected.value;
+    let numberOfHorns = this.props.data.filter((beast) => {
+      if (beast.horns === this.state.sortByHorn) {
+        return beast;
+      }
+    })
+   
+    this.props.update (
+      numberOfHorns
+      )
 
-  //   console.log(name, selected);
 
-  //   this.setState ({
-  //     name: name,
-  //     howToSort: selected
-  //   });
-  // }
+    this.setState ({
+      selectedValue: value,
+    })
 
-  let username = e.target.username.value;
+    console.log(value);
 
-  console.log('username', username);
-
-  console.log('the value of name is: ', this.state.name);
-
-  if (this.state.howToSort === 'even') {
-      // display only the even number of horns
-      let newData = data.filter(horn => horn % 2 === 0);
-      this.setState({filteredData: newData});
-
-  } else if (this.state.howToSort === 'odd') {
-    // display only the odd number of horns
-    let newData = data.filter(horn => horn % 2 !== 0);
-    this.setState({filteredData: newData});
-
-  } else {
-    // display all the horns
-    this.setState({filteredData: data})
-  }
+//   if (this.state.sortByHorn === 'even') {
+//       // display only the even number of horns
+//       let newData = data.filter(horn => horn % 2 === 0);
+//       this.setState({filteredData: newData});
+// 
+}
 
   handleNameOnChange = (e) => {
     this.setState({
@@ -55,52 +47,50 @@ class ListGroup extends React.Component {
     })
   }
 
-  handleSortOnChange = (e) => {
+  handleOnChange = (e) => {
+    console.log(e.target.value);
     this.setState ({
-      howToSort: e.target.event
+      sortByHorn: parseInt(e.target.value)
     });
   }
 
   render() {
 
-  let horns = this.state.filteredData.map((horn, idx) => <ListGroup.Item key={idx}>{horn}</ListGroup.Item>)
+  // let horns = this.state.filteredData.map((horn, idx) => <ListGroup.Item key={idx}>{horn}</ListGroup.Item>)
 
     return (
       <>
-      <header>
-          <h1>Horned Beast Form</h1>
-      </header>
-        <main>
           <Form onSubmit={this.handleSubmit}>
-
-            <Form.Label htmlFor="name" onChange={this.handleNameOnChange}>Name
-              <Form.Control type="text" name="name" id="name"/>
-            </Form.Label>
-
-          <Form.Group controlId="username">
-            <Form.Label htmlFor="username">Username</Form.Label> 
-            <Form.Control type="text"/>
-           </Form.Group>
-
-              <Form.Label>Select Animal
-                <Form.Select name="selected" onchange="this.handleHowToSortOnChange">
-                  <option value="all">All</option>
-                  <option value="odd">Odd</option>
-                  <option value="even">Even</option>
-                </Form.Select>
-
-              </Form.Label>
-              <Button type="submit">Submit</Button>
-          </Form>
-          <ListGroup>
-                {horns}
-            </ListGroup>
-        </main>
-        <footer>
-        </footer>
+          <Form.Select onChange={this.handleOnChange}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="100">More than 10</option>
+          </Form.Select>
+            
+          <Button type="submit">Submit</Button>
+        </Form>
         </>
-    )
-  }
-}
+      )};
+    } 
 
-export default ListGroup;
+
+
+
+    // <Form.Label htmlFor="name">
+    //           Pick a Number
+    //         <Form.Control type="text" name="name" id="name" />
+    //         </Form.Label>
+    //       <Form.Group controlId="username">
+    //         <Form.Label htmlFor="username">Username</Form.Label>
+    //         <Form.Control type="text" />
+    //       </Form.Group>
+
+    //       <Form.Label>Select Animal
+    //         <Form.Select name="selected" onchange="this.handleHowToSortOnChange">
+    //           <option value="all">All</option>
+    //           <option value="odd">Odd</option>
+    //           <option value="even">Even</option>
+    //         </Form.Select>
+
+    //       </Form.Label>

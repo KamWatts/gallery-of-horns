@@ -1,12 +1,12 @@
 /** @format */
 
 import React from "react";
-// import ImageModal from "./Modal";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import data from "./data.json";
 import SelectedBeast from "./SelectedBeast"
+import BeastForm from "./Form";
 import "./App.css";
 
 // Use classes more than IDs in React. React is meant to be reused.
@@ -15,9 +15,20 @@ class App extends React.Component {
     super(props);
     this.state = {
       isModalDisplaying: false,
-      beastToDisplay: {}
+      beastToDisplay: {},
+      numberOfHorns: 0,
+      data: data,
+      filteredData: data
     };
   }
+
+  updateData = (filteredData) => {
+    this.setState({
+      filteredData: filteredData
+    })
+  }
+
+  
 
   handleCloseModal = () =>
     this.setState({
@@ -38,10 +49,16 @@ class App extends React.Component {
       <>
         <Header/>
 
+        <BeastForm 
+        update={this.updateData}
+        hornCount={this.numberOfHorns}
+        handleFilter={this.setHorn}
+        data={this.state.data}/>
+
         <h3 onClick={this.handleOpenModal}>{this.state.image}</h3>
 
         <Main
-          data={data}
+          data={this.state.filteredData}
           addHearts={this.addHearts}
           handleOpenModal={this.handleOpenModal}
         />
