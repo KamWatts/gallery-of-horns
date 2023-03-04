@@ -21,6 +21,7 @@ export default class BeastForm extends React.Component {
       if (beast.horns === this.state.sortByHorn) {
         return beast;
       }
+      return numberOfHorns;
     })
    
     this.props.update (
